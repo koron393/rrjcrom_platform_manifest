@@ -9,20 +9,25 @@
   <remote  name="github"
            fetch=".."
            review="review.cyanogenmod.org" />
-  
+
   <remote  name="rr"	
            fetch="https://github.com/ResurrectionRemix" />
-           
-           
+
   <remote  name="rrd"	
            fetch="https://github.com/ResurrectionRemix-Devices" />
 
-
   <remote  name="private"
            fetch="ssh://git@github.com" />
-           
-   <remote name="bitbucket" 
+
+  <remote name="bitbucket"
           fetch="https://bitbucket.org/" />
+
+  <remote  name="jcrom"
+           fetch="https://github.com/JCROM-Android/" />
+
+  <remote  name="mirenk"
+           fetch="https://github.com/Mirenk/"
+           revision="rr_jc"/>
 
   <default revision="refs/heads/cm-12.1"
            remote="github"
@@ -30,13 +35,27 @@
            sync-j="4" />
 
   <project path="build" name="ResurrectionRemix/android_build" groups="pdk,tradefed" remote="github" revision="optimized-stable" >
-    <copyfile src="core/root.mk" dest="Makefile" />
+  <copyfile src="core/root.mk" dest="Makefile" />
   </project>
 
-  <project path="android" name="ResurrectionRemix/platform_manifest" remote="github" revision="optimized-lollipop5.1" >
+  <project path="android" name="koron393/rrjcrom_platform_manifest" remote="github" revision="optimized-rr_jc"  >
   <copyfile src="build.sh" dest="build-rr.sh" />
   </project>
 
+  <!-- JCROM -->
+  <project path="packages/apps/JCWallpaper" name="jcrom_packages_apps_JCWallpaper" remote="jcrom" revision="lolli" />
+  <project path="packages/apps/JCLauncher" name="jcrom_packages_apps_JCLauncher" remote="jcrom" revision="lolli" />
+  <project path="packages/apps/VisualThemeSelector" name="jcrom_packages_apps_VisualThemeSelector" remote="jcrom" revision="lolli" />
+  <project path="jcrom/common" name="jcrom_common" remote="jcrom" revision="lolli" />
+
+  <!-- JCROM + RR -->
+  <project path="frameworks/base" name="android_frameworks_base" remote="mirenk" />
+  <project path="packages/apps/Settings" name="Resurrection_packages_apps_Settings" remote="mirenk" />
+  <project path="system/core" name="koron393/rrjcrom_system_core" remote="github" revision="optimized-rr_jc" />
+  <project path="vendor/cm" name="android_vendor_resurrection" remote="mirenk" />
+  <project path="external/sepolicy" name="android_external_sepolicy" remote="mirenk" />
+
+  <!-- RR -->
   <project path="abi/cpp" name="CyanogenMod/android_abi_cpp" groups="pdk" />
   <project path="art" name="CyanogenMod/android_art" groups="pdk" />
   <project path="bionic" name="ResurrectionRemix/android_bionic" groups="pdk" revision="optimized-lollipop5.1" />
@@ -309,7 +328,6 @@
   <project path="external/rsync" name="CyanogenMod/android_external_rsync" />
   <project path="external/safe-iop" name="platform/external/safe-iop" groups="pdk" remote="aosp" />
   <project path="external/scrypt" name="platform/external/scrypt" groups="pdk" remote="aosp" />
-  <project path="external/sepolicy" name="CyanogenMod/android_external_sepolicy" groups="pdk" />
   <project path="external/sfntly" name="platform/external/sfntly" groups="pdk-cw-fs,qcom_msm8x26" remote="aosp" />
   <project path="external/skia" name="CyanogenMod/android_external_skia" groups="pdk-cw-fs,qcom_msm8x26" />
   <project path="external/smack" name="platform/external/smack" groups="pdk-cw-fw" remote="aosp" />
@@ -349,7 +367,6 @@
   <project path="external/zopfli" name="platform/external/zopfli" groups="pdk-cw-fs" remote="aosp" />
   <project path="external/zxing" name="platform/external/zxing" groups="pdk-cw-fs" remote="aosp" />
   <project name="android_frameworks_av" path="frameworks/av" remote="rrd" revision="optimized" />
-  <project path="frameworks/base" name="ResurrectionRemix/android_frameworks_base" remote="github" revision="lollipop5.1" />
   <project path="frameworks/compile/libbcc" name="CyanogenMod/android_frameworks_compile_libbcc" groups="pdk" />
   <project path="frameworks/compile/mclinker" name="CyanogenMod/android_frameworks_compile_mclinker" groups="pdk" />
   <project path="frameworks/compile/slang" name="CyanogenMod/android_frameworks_compile_slang" groups="pdk" />
@@ -479,12 +496,11 @@
   <project path="packages/apps/Nfc" name="CyanogenMod/android_packages_apps_Nfc" />
   <project path="packages/apps/OneTimeInitializer" name="platform/packages/apps/OneTimeInitializer" remote="aosp" />
   <project path="packages/apps/OTACenter" name="ResurrectionRemix/packages_apps_OTACenter" remote="github" revision="lollipop5.1" />
-<project path="packages/apps/OmniSwitch" name="ResurrectionRemix/android_packages_apps_OmniSwitch" remote="github" revision="lollipop5.1" />
+  <project path="packages/apps/OmniSwitch" name="ResurrectionRemix/android_packages_apps_OmniSwitch" remote="github" revision="lollipop5.1" />
   <project path="packages/apps/PackageInstaller" name="CyanogenMod/android_packages_apps_PackageInstaller" />
   <project path="packages/apps/PhoneCommon" name="CyanogenMod/android_packages_apps_PhoneCommon" />
   <project path="packages/apps/Profiles" name="CyanogenMod/android_packages_apps_Profiles" />
   <project path="packages/apps/Provision" name="CyanogenMod/android_packages_apps_Provision" />
-  <project path="packages/apps/Settings" name="ResurrectionRemix/Resurrection_packages_apps_Settings" remote="github" revision="lollipop5.1"/>
   <project path="packages/apps/SmartCardService" name="CyanogenMod/android_packages_apps_SmartCardService" />
   <project path="packages/apps/SoundRecorder" name="CyanogenMod/android_packages_apps_SoundRecorder" />
   <project path="packages/apps/SpeechRecorder" name="CyanogenMod/android_packages_apps_SpeechRecorder" />
@@ -576,7 +592,6 @@
   <project path="prebuilts/sdk" name="platform/prebuilts/sdk" groups="pdk" remote="aosp" />
   <project path="prebuilts/tools" name="platform/prebuilts/tools" groups="pdk,tools" remote="aosp" />
   <project path="sdk" name="platform/sdk" remote="aosp" />
-  <project name="android_system_core" path="system/core" remote="rr" revision="optimized" />
   <project path="system/extras" name="CyanogenMod/android_system_extras" groups="pdk" />
   <project path="system/extras/su" name="CyanogenMod/android_system_extras_su" />
   <project path="system/keymaster" name="CyanogenMod/android_system_keymaster" groups="pdk" />
@@ -597,7 +612,6 @@
   <project path="tools/studio/cloud" name="platform/tools/studio/cloud" groups="notdefault,tools" remote="aosp" />
   <project path="tools/studio/translation" name="platform/tools/studio/translation" groups="notdefault,tools" remote="aosp" />
   <project path="tools/swt" name="platform/tools/swt" groups="notdefault,tools" remote="aosp" />
-  <project path="vendor/cm" name="ResurrectionRemix/android_vendor_resurrection" remote="github" revision="lollipop5.1"/> 
   <project name="UBERTC/arm-eabi-4.9" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.9" remote="bitbucket" revision="master" />
   <project name="UBERTC/arm-linux-androideabi-4.9" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9-uber" remote="bitbucket" revision="master" />
   <project name="UBERTC/arm-eabi-6.0" path="prebuilts/gcc/linux-x86/arm/arm-eabi-6.0-uber" remote="bitbucket" revision="master" />
