@@ -52,7 +52,7 @@
   <project path="frameworks/base" name="android_frameworks_base" remote="mirenk" />
   <project path="packages/apps/Settings" name="Resurrection_packages_apps_Settings" remote="mirenk" />
   <project path="system/core" name="koron393/rrjcrom_system_core" remote="github" revision="optimized-rr_jc" />
-  <project path="vendor/cm" name="android_vendor_resurrection" remote="mirenk" />
+  <project path="vendor/cm" name="koron393/rrjcrom_vendor_resurrection" remote="github" revision="optimized-rr_jc" />
   <project path="external/sepolicy" name="android_external_sepolicy" remote="mirenk" />
 
   <!-- RR -->
