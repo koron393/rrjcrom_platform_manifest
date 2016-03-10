@@ -29,12 +29,15 @@
            fetch="https://github.com/Mirenk/"
            revision="rr_jc"/>
 
+  <remote  name="koron393"
+           fetch="https://github.com/koron393/" />
+
   <default revision="refs/heads/cm-12.1"
            remote="github"
            sync-c="true"
            sync-j="4" />
 
-  <project path="build" name="ResurrectionRemix/android_build" groups="pdk,tradefed" remote="github" revision="optimized-stable" >
+  <project path="build" name="android_build" groups="pdk,tradefed" remote="koron393" revision="optimized-rr_jc" >
   <copyfile src="core/root.mk" dest="Makefile" />
   </project>
 
@@ -49,13 +52,29 @@
   <project path="jcrom/common" name="jcrom_common" remote="jcrom" revision="lolli" />
 
   <!-- JCROM + RR -->
-  <project path="frameworks/base" name="android_frameworks_base" remote="mirenk" />
-  <project path="packages/apps/Settings" name="Resurrection_packages_apps_Settings" remote="mirenk" />
-  <project path="system/core" name="koron393/rrjcrom_system_core" remote="github" revision="optimized-rr_jc" />
-  <project path="vendor/cm" name="koron393/rrjcrom_vendor_resurrection" remote="github" revision="optimized-rr_jc" />
+  <project path="frameworks/base" name="rrjcrom_frameworks_base" remote="koron393" revision="rr_jc" />
+  <project path="packages/apps/Settings" name="rrjcrom_packages_apps_Settings" remote="koron393" revision="rr_jc" />
+  <project path="system/core" name="rrjcrom_system_core" remote="koron393" revision="optimized-rr_jc" />
+  <project path="vendor/cm" name="rrjcrom_vendor_resurrection" remote="koron393" revision="optimized-rr_jc" />
   <project path="external/sepolicy" name="android_external_sepolicy" remote="mirenk" />
 
-  <!-- RR -->
+  <!-- RR MAINTENANCE -->
+  <project path="development" name="rrjcrom_development" groups="pdk-cw-fs" remote="koron393" revision="rr_jc" />
+  <project path="frameworks/opt/cards" name="rrjcrom_frameworks_opt_cards" remote="koron393" revision="rr_jc" />
+  <project path="frameworks/native" name="rrjcrom_frameworks_native" groups="pdk" remote="koron393" revision="rr_jc" />
+  <project path="frameworks/opt/hardware" name="rrjcrom_frameworks_opt_hardware" remote="koron393" revision="rr_jc" />
+  <project path="packages/apps/Contacts" name="rrjcrom_packages_apps_Contacts" remote="koron393" revision="rr_jc"/>
+  <project path="packages/apps/ContactsCommon" name="rrjcrom_packages_apps_ContactsCommon" remote="koron393" revision="rr_jc"/>
+  <project path="packages/apps/Dialer" name="rrjcrom_packages_apps_Dialer" remote="koron393" revision="rr_jc"/>
+  <project path="packages/apps/InCallUI" name="rrjcrom_packages_apps_InCallUI" remote="koron393" revision="rr_jc"/>
+  <project path="packages/apps/LockClock" name="rrjcrom_packages_apps_LockClock" remote="koron393" revision="rr_jc"/>
+  <project path="packages/apps/Mms" name="rrjcrom_packages_apps_Mms" remote="koron393" revision="rr_jc"/>
+  <project path="packages/apps/ThemeChooser" name="rrjcrom_packages_apps_ThemeChooser" remote="koron393" revision="rr_jc"/>
+  <project path="packages/inputmethods/LatinIME" name="rrjcrom_packages_inputmethods_LatinIME" remote="koron393" revision="rr_jc"/>
+  <project path="packages/services/Telephony" name="rrjcrom_packages_services_Telephony" remote="koron393" revision="rr_jc"/>
+  <project path="vendor/cmsdk" name="rrjcrom_platform_sdk" remote="koron393" revision="rr_jc" />
+
+  <!-- CM or AOSP -->
   <project path="abi/cpp" name="CyanogenMod/android_abi_cpp" groups="pdk" />
   <project path="art" name="CyanogenMod/android_art" groups="pdk" />
   <project path="bionic" name="ResurrectionRemix/android_bionic" groups="pdk" revision="optimized-lollipop5.1" />
@@ -66,7 +85,6 @@
   <project path="developers/demos" name="platform/developers/demos" remote="aosp" />
   <project path="developers/docs" name="platform/developers/docs" remote="aosp" />
   <project path="developers/samples/android" name="platform/developers/samples/android" remote="aosp" />
-  <project path="development" name="ResurrectionRemix/android_development" groups="pdk-cw-fs" revision="lollipop5.1" />
   <project path="device/common" name="CyanogenMod/android_device_common" groups="pdk-cw-fs" />
   <project path="device/generic/arm64" name="CyanogenMod/android_device_generic_arm64" groups="pdk" />
   <project path="device/generic/armv7-a-neon" name="CyanogenMod/android_device_generic_armv7-a-neon" groups="pdk" />
@@ -374,8 +392,6 @@
   <project path="frameworks/minikin" name="CyanogenMod/android_frameworks_minikin" groups="pdk-cw-fs" />
   <project path="frameworks/ml" name="CyanogenMod/android_frameworks_ml" />
   <project path="frameworks/multidex" name="CyanogenMod/android_frameworks_multidex" groups="pdk-cw-fs" />
-  <project path="frameworks/opt/cards" name="ResurrectionRemix/frameworks_opt_cards" remote="github" revision="lollipop5.1" />
-  <project path="frameworks/native" name="ResurrectionRemix/frameworks_native" groups="pdk" revision="lollipop5.1" remote="github" />
   <project path="frameworks/opt/bitmap" name="CyanogenMod/android_frameworks_opt_bitmap" />
   <project path="frameworks/opt/bluetooth" name="CyanogenMod/android_frameworks_opt_bluetooth" groups="pdk-cw-fs" />
   <project path="frameworks/opt/calendar" name="CyanogenMod/android_frameworks_opt_calendar" />
@@ -384,7 +400,6 @@
   <project path="frameworks/opt/colorpicker" name="CyanogenMod/android_frameworks_opt_colorpicker" />
   <project path="frameworks/opt/datetimepicker" name="CyanogenMod/android_frameworks_opt_datetimepicker" />
   <project path="frameworks/opt/emoji" name="CyanogenMod/android_frameworks_opt_emoji" />
-  <project path="frameworks/opt/hardware" name="ResurrectionRemix/android_frameworks_opt_hardware" remote="github" revision="lollipop5.1" />
   <project path="frameworks/opt/inputmethodcommon" name="CyanogenMod/android_frameworks_opt_inputmethodcommon" />
   <project path="frameworks/opt/mms" name="CyanogenMod/android_frameworks_opt_mms" />
   <project path="frameworks/opt/net/ethernet" name="CyanogenMod/android_frameworks_opt_net_ethernet" />
@@ -478,20 +493,14 @@
   <project path="packages/apps/CMBugReport" name="CyanogenMod/android_packages_apps_CMBugreport" />
   <project path="packages/apps/CMFileManager" name="CyanogenMod/android_packages_apps_CMFileManager" />
   <!-- <project path="packages/apps/CMHome" name="CyanogenMod/android_packages_apps_CMHome" /> -->
-  <project path="packages/apps/Contacts" name="ResurrectionRemix/android_packages_apps_Contacts" revision="lollipop5.1"/>
-  <project path="packages/apps/ContactsCommon" name="ResurrectionRemix/android_packages_apps_ContactsCommon" revision="lollipop5.1"/>
   <project path="packages/apps/DeskClock" name="CyanogenMod/android_packages_apps_DeskClock" />
-  <project path="packages/apps/Dialer" name="ResurrectionRemix/android_packages_apps_Dialer" revision="lollipop5.1"/>
   <project path="packages/apps/Eleven" name="CyanogenMod/android_packages_apps_Eleven" />
   <project path="packages/apps/Email" name="CyanogenMod/android_packages_apps_Email" />
   <project path="packages/apps/Exchange" name="CyanogenMod/android_packages_apps_Exchange" />
   <project path="packages/apps/Gallery2" name="CyanogenMod/android_packages_apps_Gallery2" />
   <project path="packages/apps/HTMLViewer" name="CyanogenMod/android_packages_apps_HTMLViewer" />
-  <project path="packages/apps/InCallUI" name="ResurrectionRemix/android_packages_apps_InCallUI" remote="github" revision="lollipop5.1"/>
   <project path="packages/apps/KeyChain" name="CyanogenMod/android_packages_apps_KeyChain" />
-  <project path="packages/apps/LockClock" name="ResurrectionRemix/android_packages_apps_LockClock" revision="lollipop5.1"/>
   <project path="packages/apps/ManagedProvisioning" name="CyanogenMod/android_packages_apps_ManagedProvisioning" />
-  <project path="packages/apps/Mms" name="ResurrectionRemix/android_packages_apps_Mms" revision="lollipop5.1"/>
   <project path="packages/apps/Nfc" name="CyanogenMod/android_packages_apps_Nfc" />
   <project path="packages/apps/OneTimeInitializer" name="platform/packages/apps/OneTimeInitializer" remote="aosp" />
   <project path="packages/apps/OTACenter" name="ResurrectionRemix/packages_apps_OTACenter" remote="github" revision="lollipop5.1" />
@@ -506,12 +515,10 @@
   <project path="packages/apps/Stk" name="CyanogenMod/android_packages_apps_Stk" />
   <project path="packages/apps/Tag" name="CyanogenMod/android_packages_apps_Tag" />
   <project path="packages/apps/Terminal" name="CyanogenMod/android_packages_apps_Terminal" />
-  <project path="packages/apps/ThemeChooser" name="ResurrectionRemix/android_packages_apps_ThemeChooser" revision="lollipop5.1"/>
   <project path="packages/apps/Trebuchet" name="CyanogenMod/android_packages_apps_Trebuchet" />
   <project path="packages/apps/TvSettings" name="CyanogenMod/android_packages_apps_TvSettings" />
   <project path="packages/apps/UnifiedEmail" name="CyanogenMod/android_packages_apps_UnifiedEmail" />
   <project path="packages/experimental" name="CyanogenMod/android_packages_experimental" />
-  <project path="packages/inputmethods/LatinIME" name="Euphoria-OS/android_packages_inputmethods_LatinIME" remote="github" revision="lollipop-5.1"/>
   <project path="packages/providers/ApplicationsProvider" name="CyanogenMod/android_packages_providers_ApplicationsProvider" />
   <project path="packages/providers/CalendarProvider" name="CyanogenMod/android_packages_providers_CalendarProvider" />
   <project path="packages/providers/ContactsProvider" name="CyanogenMod/android_packages_providers_ContactsProvider" />
@@ -527,7 +534,6 @@
   <project path="packages/screensavers/WebView" name="CyanogenMod/android_packages_screensavers_WebView" />
   <project path="packages/services/Mms" name="CyanogenMod/android_packages_services_Mms" />
   <project path="packages/services/Telecomm" name="CyanogenMod/android_packages_services_Telecomm" />
-  <project path="packages/services/Telephony" name="ResurrectionRemix/android_packages_services_Telephony" remote="github" revision="lollipop5.1"/>
   <project path="packages/wallpapers/Basic" name="CyanogenMod/android_packages_wallpapers_Basic" />
   <project path="packages/wallpapers/Galaxy4" name="CyanogenMod/android_packages_wallpapers_Galaxy4" />
   <project path="packages/wallpapers/HoloSpiral" name="CyanogenMod/android_packages_wallpapers_HoloSpiral" />
@@ -618,5 +624,4 @@
   <project name="UBERTC/arm-linux-androideabi-5.3" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-5.3" remote="bitbucket" revision="master" />
   <project path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9-kernel" name="UBERTC/aarch64-linux-android-4.9-kernel" remote="bitbucket" revision="master" />
   <project path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9-rom" name="UBERTC/aarch64-linux-android-4.9" remote="bitbucket" revision="master" />
-  <project path="vendor/cmsdk" name="ResurrectionRemix/cm_platform_sdk" remote="github" revision="lollipop5.1" />
 </manifest>
