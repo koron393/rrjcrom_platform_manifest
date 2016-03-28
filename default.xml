@@ -60,6 +60,7 @@
 
   <!-- RR MAINTENANCE -->
   <project path="development" name="rrjcrom_development" groups="pdk-cw-fs" remote="koron393" revision="rr_jc" />
+  <project path="frameworks/av" name="rrjcrom_frameworks_av" remote="koron393" revision="optimized-rr_jc" />
   <project path="frameworks/opt/cards" name="rrjcrom_frameworks_opt_cards" remote="koron393" revision="rr_jc" />
   <project path="frameworks/native" name="rrjcrom_frameworks_native" groups="pdk" remote="koron393" revision="rr_jc" />
   <project path="frameworks/opt/hardware" name="rrjcrom_frameworks_opt_hardware" remote="koron393" revision="rr_jc" />
@@ -383,7 +384,6 @@
   <project path="external/zlib" name="CyanogenMod/android_external_zlib" groups="pdk" />  
   <project path="external/zopfli" name="platform/external/zopfli" groups="pdk-cw-fs" remote="aosp" />
   <project path="external/zxing" name="platform/external/zxing" groups="pdk-cw-fs" remote="aosp" />
-  <project name="android_frameworks_av" path="frameworks/av" remote="rrd" revision="optimized" />
   <project path="frameworks/compile/libbcc" name="CyanogenMod/android_frameworks_compile_libbcc" groups="pdk" />
   <project path="frameworks/compile/mclinker" name="CyanogenMod/android_frameworks_compile_mclinker" groups="pdk" />
   <project path="frameworks/compile/slang" name="CyanogenMod/android_frameworks_compile_slang" groups="pdk" />
